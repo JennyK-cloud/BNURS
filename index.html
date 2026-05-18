@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BNurs Curriculum Mapping – University of Manchester</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <img src="images/uom-logo.png" class="uom-logo" alt="University of Manchester" onerror="this.style.display='none'">
+    <div class="header-text">
+      <h1>BNurs Curriculum Mapping</h1>
+      <p class="subtitle">University of Manchester &middot; School of Health Sciences &middot; NMC Future Nurse (2018)</p>
+    </div>
+  </div>
+</header>
+
+<div class="filter-bar">
+  <span class="search-by-label">Search by</span>
+  <div class="filter-group">
+    <label>Year of Study</label>
+    <div class="btn-group">
+      <button class="filter-btn active" data-filter="year" data-value="all">All Years</button>
+      <button class="filter-btn" data-filter="year" data-value="1">Year 1</button>
+      <button class="filter-btn" data-filter="year" data-value="2">Year 2</button>
+      <button class="filter-btn" data-filter="year" data-value="3">Year 3</button>
+    </div>
+  </div>
+  <span class="filter-divider" aria-hidden="true"></span>
+  <div class="filter-group">
+    <label>Field of Practice</label>
+    <div class="btn-group">
+      <button class="filter-btn active" data-filter="field" data-value="all">All Fields</button>
+      <button class="filter-btn" data-filter="field" data-value="Adult">Adult</button>
+      <button class="filter-btn" data-filter="field" data-value="MH">Mental Health</button>
+      <button class="filter-btn" data-filter="field" data-value="CYP">CYP</button>
+    </div>
+  </div>
+  <span class="filter-divider" aria-hidden="true"></span>
+  <div class="filter-group filter-group--search">
+    <label>Keyword</label>
+    <input type="text" id="search" placeholder="Unit code or NMC ref (e.g. 4.5)&hellip;" autocomplete="off" />
+  </div>
+</div>
+
+<nav class="main-nav">
+  <button class="nav-btn active" data-view="nmc" onclick="setView('nmc', this)">
+    <img src="images/nmc-logo.png" class="nav-btn-logo" alt="" onerror="this.style.display='none'">
+    NMC Standards
+  </button>
+  <button class="nav-btn" data-view="programme" onclick="setView('programme', this)">Programme Outcomes</button>
+  <button class="nav-btn" data-view="units" onclick="setView('units', this)">Units Overview</button>
+  <button class="nav-btn" data-view="assessments" onclick="setView('assessments', this)">&#9654; Assessment Map</button>
+  <span class="nav-spacer"></span>
+  <button class="nav-btn nav-btn-gaps" data-view="gaps" onclick="setView('gaps', this)">&#9651; Coverage Gaps</button>
+  <button class="nav-btn export-btn" onclick="exportCSV()">&#8659; Export CSV</button>
+</nav>
+
+<main id="content">
+  <div class="loading">Loading curriculum data…</div>
+</main>
+
+<div id="ref-modal" class="ref-modal-overlay" onclick="closeRefPopup(event)">
+  <div class="ref-modal-box">
+    <button class="ref-modal-close" onclick="closeRefPopup()">&times;</button>
+    <div id="ref-modal-body"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script src="csv.js"></script>
+</body>
+</html>
